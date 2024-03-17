@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Dart",
+            "type": "dart",
+            "request": "launch",
+            "program": "example/sol_backoffice_api_example.dart"
+        },
+        {
             "name": "sol_backoffice_api",
             "request": "launch",
             "type": "dart"
