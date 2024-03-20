@@ -1,7 +1,7 @@
-import 'package:sol_backoffice_api/sol_backoffice_api.dart';
+import 'package:sol_backoffice_api/src/models/mod_sistemas.dart';
 
 void main() async {
-  var modC = ModConfiguraciones();
-  var curC = await modC.obtenerConfiguraciones();
-  print('URL: ${curC.url}');
+  var modC = ModSistemas();
+  var curC = await modC.obtenerSistemas();
+  print(curC);
 }
