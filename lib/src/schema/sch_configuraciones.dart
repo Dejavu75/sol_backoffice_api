@@ -9,12 +9,12 @@ class SchConfiguraciones {
   List<SchConexion> conexiones;
 
   SchConfiguraciones(
-      {required this.conexion_actual,
-      required this.url,
-      required this.nombre,
-      required this.conexiones,
-      required this.usuario,
-      required this.apikey});
+      {this.conexion_actual = 0,
+      this.url = "",
+      this.nombre = "",
+      this.conexiones = const [],
+      this.usuario = "",
+      this.apikey = ""});
 
   factory SchConfiguraciones.fromJson(Map<String, dynamic> json) {
     List<dynamic> conexionesJson = json["conexiones"];
