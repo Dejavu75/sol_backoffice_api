@@ -6,14 +6,24 @@ import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_sistemas.dart';
 
 class ModSistemas {
+  SchConfiguraciones schConfiguraciones = SchConfiguraciones();
+
   String urlApi = '';
-  Future<List<SchSistema>> obtenerSistemas([SchConfiguraciones? config]) async {
-    if (config == null) {
-      print("Obtener Configuraciones");
-      config = await ConConfiguraciones().obtenerConfiguracion();
+  ModSistemas([SchConfiguraciones? xconf]) {
+    if (xconf != null) {
+      schConfiguraciones = xconf;
     }
+  }
+  controlarConfiguraciones() async {
+    schConfiguraciones = await ConConfiguraciones()
+        .controlarConfiguraciones(schConfiguraciones, this);
+  }
+
+  Future<List<SchSistema>> obtenerSistemas() async {
+    await controlarConfiguraciones();
+
     //config = await ModConfiguraciones().obtenerConfiguraciones();
-    final urlApi = '${config.url}sistema/obtener';
+    final urlApi = '${schConfiguraciones.url}sistema/obtener';
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
