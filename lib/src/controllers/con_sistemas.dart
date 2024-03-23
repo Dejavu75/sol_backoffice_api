@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:sol_backoffice_api/sol_backoffice_api.dart';
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
-import 'package:sol_backoffice_api/src/models/mod_sistemas.dart';
+import 'package:sol_backoffice_api/src/models/nages_api/mod_sistemas.dart';
 import 'package:sol_backoffice_api/src/schema/sch_sistemas.dart';
 
 class ConSistemas {

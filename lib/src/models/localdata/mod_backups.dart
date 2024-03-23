@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 
-class ModBackups {
+class ModBackupsLocal {
   List<SchBackups> obtenerBackups(
       [String? backupHeader = '*', String? keySistema = '*']) {
     List<SchBackups> backups2 = [];

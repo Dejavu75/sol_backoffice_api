@@ -16,22 +16,23 @@ class SchBackups {
   // Método para convertir un objeto SchBackups a un mapa
   Map<String, dynamic> toMap() {
     return {
-      'keySistema': keySistema,
-      'fecha': fecha,
+      'key_sistema': keySistema,
+      'fecha': fecha?.toIso8601String(),
       'tamano': tamano,
       'archivo': archivo,
-      'fechaDatos': fechaDatos,
+      'fechaDatos': fechaDatos?.toIso8601String(),
     };
   }
 
   // Método para convertir un mapa a un objeto SchBackups
   static SchBackups fromMap(Map<String, dynamic> map) {
     return SchBackups(
-      keySistema: map['keySistema'],
-      fecha: map['fecha'],
-      tamano: map['tamano'],
+      keySistema: map['key_sistema'],
+      fecha: map['fecha'] != null ? DateTime.parse(map['fecha']) : null,
+      tamano: map['tamano'] != null ? (map['tamano'] as num).toDouble() : null,
       archivo: map['archivo'],
-      fechaDatos: map['fechaDatos'],
+      fechaDatos:
+          map['fechaDatos'] != null ? DateTime.parse(map['fechaDatos']) : null,
     );
   }
 }

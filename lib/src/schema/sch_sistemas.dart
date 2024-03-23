@@ -2,122 +2,122 @@
 // ignore_for_file: non_constant_identifier_names
 
 class SchSistema {
-  String Key_Sistema;
-  String? ID_Sistema;
-  String? Nombre;
-  String? IP_Publico;
-  String? exe_ges_FECHA;
-  String? EXE_GES2K_FECHA;
+  String key_sistema;
+  String? id_sistema;
+  String? nombre;
+  String? ip_publico;
+  String? exe_ges_fecha;
+  String? exe_ges2k_fecha;
   int? version_system;
-  String? Fecha;
-  String? Subsistema;
-  String? Rama;
+  String? fecha;
+  String? subsistema;
+  String? rama;
   int? localizacion;
-  int? Dev_Env;
+  int? dev_env;
   String? url;
   int? lic_est;
   String? lic_val;
   String? lic_tlk;
-  int? Comandos;
-  int? IIBB;
-  String? EXE_GES_Act_Fecha;
-  int? DesdeGESTask;
-  String? Desde_GESTask_Fecha;
-  int? AGES;
+  int? comandos;
+  int? iibb;
+  String? exe_ges_act_fecha;
+  int? desdegestask;
+  String? desde_gestask_fecha;
+  int? ages;
   int? nages;
-  String? BackupHeader;
+  String? backupheader;
 
   SchSistema(
-      {required this.Key_Sistema,
-      this.ID_Sistema,
-      this.Nombre,
-      this.IP_Publico,
-      this.exe_ges_FECHA,
-      this.EXE_GES2K_FECHA,
+      {required this.key_sistema,
+      this.id_sistema,
+      this.nombre,
+      this.ip_publico,
+      this.exe_ges_fecha,
+      this.exe_ges2k_fecha,
       this.version_system,
-      this.Fecha,
-      this.Subsistema,
-      this.Rama,
+      this.fecha,
+      this.subsistema,
+      this.rama,
       this.localizacion,
-      this.Dev_Env,
+      this.dev_env,
       this.url,
       this.lic_est,
       this.lic_val,
       this.lic_tlk,
-      this.Comandos,
-      this.IIBB,
-      this.EXE_GES_Act_Fecha,
-      this.DesdeGESTask,
-      this.Desde_GESTask_Fecha,
-      this.AGES,
+      this.comandos,
+      this.iibb,
+      this.exe_ges_act_fecha,
+      this.desdegestask,
+      this.desde_gestask_fecha,
+      this.ages,
       this.nages,
-      this.BackupHeader});
+      this.backupheader});
 
-  factory SchSistema.fromJson(Map<String, dynamic> json) {
+  factory SchSistema.fromMap(Map<String, dynamic> map) {
     return SchSistema(
-        Key_Sistema: json['Key_Sistema'],
-        ID_Sistema: json['ID_Sistema'],
-        Nombre: json['Nombre'],
-        IP_Publico: json['IP_Publico'],
-        exe_ges_FECHA: json['exe_ges_FECHA'],
-        EXE_GES2K_FECHA: json['EXE_GES2K_FECHA'],
-        version_system: json['version_system'],
-        Fecha: json['Fecha'],
-        Subsistema: json['Subsistema'],
-        Rama: json['Rama'],
-        localizacion: json['localizacion'],
-        Dev_Env: json['Dev_Env'],
-        url: json['url'],
-        lic_est: json['lic_est'],
-        lic_val: json['lic_val'],
-        lic_tlk: json['lic_tlk'],
-        Comandos: json['Comandos'],
-        IIBB: json['IIBB'],
-        EXE_GES_Act_Fecha: json['EXE_GES_Act_Fecha'],
-        DesdeGESTask: json['DesdeGESTask'],
-        Desde_GESTask_Fecha: json['Desde_GESTask_Fecha'],
-        AGES: json['AGES'],
-        nages: json['nages'],
-        BackupHeader: json['backupheader']);
+        key_sistema: map['key_sistema'],
+        id_sistema: map['id_sistema'],
+        nombre: map['nombre'],
+        ip_publico: map['ip_publico'],
+        exe_ges_fecha: map['exe_ges_fecha'],
+        exe_ges2k_fecha: map['exe_ges2k_fecha'],
+        version_system: map['version_system'],
+        fecha: map['fecha'],
+        subsistema: map['subsistema'],
+        rama: map['rama'],
+        localizacion: map['localizacion'],
+        dev_env: map['dev_env'],
+        url: map['url'],
+        lic_est: map['lic_est'],
+        lic_val: map['lic_val'],
+        lic_tlk: map['lic_tlk'],
+        comandos: map['comandos'],
+        iibb: map['iibb'],
+        exe_ges_act_fecha: map['exe_ges_act_fecha'],
+        desdegestask: map['desdegestask'],
+        desde_gestask_fecha: map['desde_gestask_fecha'],
+        ages: map['ages'],
+        nages: map['nages'],
+        backupheader: map['backupheader']);
   }
 
-  Map<String, dynamic> toJson() {
+  Map<String, dynamic> toMap() {
     return {
-      'Key_Sistema': Key_Sistema,
-      'ID_Sistema': ID_Sistema,
-      'Nombre': Nombre,
-      'IP_Publico': IP_Publico,
-      'exe_ges_FECHA': exe_ges_FECHA,
-      'EXE_GES2K_FECHA': EXE_GES2K_FECHA,
+      'key_sistema': key_sistema,
+      'id_sistema': id_sistema,
+      'nombre': nombre,
+      'ip_publico': ip_publico,
+      'exe_ges_fecha': exe_ges_fecha,
+      'exe_ges2k_fecha': exe_ges2k_fecha,
       'version_system': version_system,
-      'Fecha': Fecha,
-      'Subsistema': Subsistema,
-      'Rama': Rama,
+      'fecha': fecha,
+      'subsistema': subsistema,
+      'rama': rama,
       'localizacion': localizacion,
-      'Dev_Env': Dev_Env,
+      'dev_env': dev_env,
       'url': url,
       'lic_est': lic_est,
       'lic_val': lic_val,
       'lic_tlk': lic_tlk,
-      'Comandos': Comandos,
-      'IIBB': IIBB,
-      'EXE_GES_Act_Fecha': EXE_GES_Act_Fecha,
-      'DesdeGESTask': DesdeGESTask,
-      'Desde_GESTask_Fecha': Desde_GESTask_Fecha,
-      'AGES': AGES,
+      'Comandos': comandos,
+      'IIBB': iibb,
+      'exe_ges_act_fecha': exe_ges_act_fecha,
+      'desdegestask': desdegestask,
+      'desde_gestask_fecha': desde_gestask_fecha,
+      'ages': ages,
       'nages': nages,
-      'BackupHeader': BackupHeader
+      'backupheader': backupheader
     };
   }
 
   String backupHeaderEvaluado() {
-    if (BackupHeader != null) {
-      return BackupHeader!;
+    if (backupheader != null) {
+      return backupheader!;
     } else {
-      if (ID_Sistema != null) {
-        return ID_Sistema!;
+      if (id_sistema != null) {
+        return id_sistema!;
       } else {
-        return Key_Sistema;
+        return key_sistema;
       }
     }
   }

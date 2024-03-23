@@ -27,7 +27,7 @@ class ModSistemas {
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
-      return jsonResponse.map((data) => SchSistema.fromJson(data)).toList();
+      return jsonResponse.map((data) => SchSistema.fromMap(data)).toList();
     } else {
       throw Exception('Failed to load Sistemas');
     }
