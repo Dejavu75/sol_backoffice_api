@@ -10,4 +10,5 @@ export 'src/schema/sch_backups.dart';
 
 export 'src/controllers/con_configuraciones.dart';
 export 'src/controllers/con_sistemas.dart';
+export 'src/controllers/con_backups.dart';
 // TODO: Export any libraries intended for clients of this package.
