@@ -2,7 +2,7 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:sol_backoffice_api/sol_backoffice_api.dart';
+import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 
@@ -21,7 +21,7 @@ class ModBackups {
         .controlarConfiguraciones(schConfiguraciones, this);
   }
 
-  Future<List<SchBackups>> obtenerBackups([key_sistema = ""]) async {
+  Future<List<SchBackups>> obtenerBackups([String key_sistema = ""]) async {
     await controlarConfiguraciones();
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();

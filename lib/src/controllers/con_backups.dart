@@ -23,9 +23,9 @@ class ConBackups {
     return modBackups;
   }
 
-  Future<List<SchBackups>> obtenerBackups() async {
+  Future<List<SchBackups>> obtenerBackups([String keySistema=""]) async {
     controlarConfiguraciones();
-    List<SchBackups> sistemas = await modBackups.obtenerBackups();
+    List<SchBackups> sistemas = await modBackups.obtenerBackups(keySistema);
     return sistemas;
   }
   Future<SchBackups> obtenerUltimoBackup(String keySistema) {
