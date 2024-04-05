@@ -23,7 +23,7 @@ class ModSistemas {
     await controlarConfiguraciones();
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();
-    final urlApi = '${schConfiguraciones.url}sistema/obtener';
+    final urlApi = '${schConfiguraciones.url}sistema/obtener_produccion';
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
