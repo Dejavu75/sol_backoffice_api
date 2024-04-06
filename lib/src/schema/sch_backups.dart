@@ -1,12 +1,10 @@
-import 'dart:ffi';
-
 class SchBackups {
   String keySistema;
   DateTime? fecha;
   double? tamano;
   String? archivo;
   DateTime? fechaDatos;
-  Int? normalizado;
+  int? normalizado;
 
   SchBackups({
     required this.keySistema,
@@ -38,7 +36,7 @@ class SchBackups {
       archivo: map['archivo'],
       fechaDatos:
           map['fechaDatos'] != null ? DateTime.parse(map['fechaDatos']) : null,
-      normalizado: map['normalizado'] != null ? (map['normalizado'] as Int) : null,
+      normalizado: map['normalizado'] != null ? (map['normalizado'] as int) : null,
           
     );
   }
