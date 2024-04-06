@@ -26,7 +26,7 @@ class ModBackups {
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();
     final urlApi =
-        '${schConfiguraciones.url}sistemas/backups/obtener${leer ? '/leer : ':''}${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
+        '${schConfiguraciones.url}sistemas/backups/obtener${leer ? '/leer':''}${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
     print(urlApi);
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
@@ -42,7 +42,7 @@ class ModBackups {
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();
     final urlApi =
-        '${schConfiguraciones.url}sistemas/backups/ultimo${leer ? '/leer : ':''}${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
+        '${schConfiguraciones.url}sistemas/backups/ultimo${leer ? '/leer':''}${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
 print(urlApi);        
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
