@@ -15,6 +15,7 @@ class SchBackups {
   bool? okNormal = false;
   bool? okTamano = false;
   bool? okGeneral = false;
+  bool? leido = false;
 
   SchBackups({
     required this.keySistema,
@@ -28,6 +29,7 @@ class SchBackups {
     this.okNormal,
     this.okTamano,
     this.okGeneral,
+    this.leido,
   });
 
   // Método para convertir un objeto SchBackups a un mapa
@@ -44,6 +46,7 @@ class SchBackups {
       'okNormal': okNormal ?? false,
       'okTamano': okTamano ?? false,
       'okGeneral': okGeneral ?? false,
+      'leido': leido ?? false,
     };
   }
 
@@ -62,6 +65,7 @@ class SchBackups {
       okNormal: map['okNormal'] ?? false,
       okTamano: map['okTamano'] ?? false,
       okGeneral: map['okGeneral'] ?? false,
+      leido: map['leido'] ?? false,
          
     );
   }
