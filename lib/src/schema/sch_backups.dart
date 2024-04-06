@@ -1,3 +1,8 @@
+      // okData: false,
+      // okFile: false,
+      // okNormal: false,
+      // okTamano: false,
+      // okGeneral: false
 class SchBackups {
   String keySistema;
   DateTime? fecha;
@@ -5,6 +10,11 @@ class SchBackups {
   String? archivo;
   DateTime? fechaDatos;
   int? normalizado;
+  bool? okData = false;
+  bool? okFile = false;
+  bool? okNormal = false;
+  bool? okTamano = false;
+  bool? okGeneral = false;
 
   SchBackups({
     required this.keySistema,
@@ -13,6 +23,11 @@ class SchBackups {
     this.archivo,
     this.fechaDatos,
     this.normalizado,
+    this.okData,
+    this.okFile,
+    this.okNormal,
+    this.okTamano,
+    this.okGeneral,
   });
 
   // Método para convertir un objeto SchBackups a un mapa
@@ -24,6 +39,11 @@ class SchBackups {
       'archivo': archivo,
       'fechaDatos': fechaDatos?.toIso8601String(),
       'normalizado': normalizado ?? '0',
+      'okData': okData ?? false,
+      'okFile': okFile ?? false,
+      'okNormal': okNormal ?? false,
+      'okTamano': okTamano ?? false,
+      'okGeneral': okGeneral ?? false,
     };
   }
 
@@ -37,7 +57,12 @@ class SchBackups {
       fechaDatos:
           map['fechaDatos'] != null ? DateTime.parse(map['fechaDatos']) : null,
       normalizado: map['normalizado'] != null ? (map['normalizado'] as int) : null,
-          
+      okData: map['okData'] ?? false,
+      okFile: map['okFile'] ?? false,
+      okNormal: map['okNormal'] ?? false,
+      okTamano: map['okTamano'] ?? false,
+      okGeneral: map['okGeneral'] ?? false,
+         
     );
   }
 }
