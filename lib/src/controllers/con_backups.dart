@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:ffi';
+
 
 
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
