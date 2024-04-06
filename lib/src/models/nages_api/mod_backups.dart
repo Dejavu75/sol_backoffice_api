@@ -21,12 +21,12 @@ class ModBackups {
         .controlarConfiguraciones(schConfiguraciones, this);
   }
 
-  Future<List<SchBackups>> obtenerBackups([String key_sistema = ""]) async {
+  Future<List<SchBackups>> obtenerBackups([String key_sistema = "", leer=false]) async {
     await controlarConfiguraciones();
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();
     final urlApi =
-        '${schConfiguraciones.url}sistemas/backups/obtener${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
+        '${schConfiguraciones.url}sistemas/backups/obtener${leer ? '/leer : ':''}${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
@@ -36,12 +36,12 @@ class ModBackups {
     }
   }
 
-  Future<SchBackups> obtenerUltimoBackup([key_sistema = ""]) async {
+  Future<SchBackups> obtenerUltimoBackup([key_sistema = "", leer=false]) async {
     await controlarConfiguraciones();
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();
     final urlApi =
-        '${schConfiguraciones.url}sistemas/backups/ultimo${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
+        '${schConfiguraciones.url}sistemas/backups/ultimo${leer ? '/leer : ':''}${key_sistema.isNotEmpty ? '/' + key_sistema : ''}';
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
       SchBackups jsonResponse = SchBackups.fromMap(json.decode(response.body));

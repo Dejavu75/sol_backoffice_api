@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ffi';
 
 
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
@@ -23,12 +24,12 @@ class ConBackups {
     return modBackups;
   }
 
-  Future<List<SchBackups>> obtenerBackups([String keySistema=""]) async {
+  Future<List<SchBackups>> obtenerBackups([String keySistema="", leer=false]) async {
     controlarConfiguraciones();
-    List<SchBackups> sistemas = await modBackups.obtenerBackups(keySistema);
+    List<SchBackups> sistemas = await modBackups.obtenerBackups(keySistema, leer);
     return sistemas;
   }
-  Future<SchBackups> obtenerUltimoBackup(String keySistema) {
-    return modBackups.obtenerUltimoBackup(keySistema);
+  Future<SchBackups> obtenerUltimoBackup(String keySistema, [leer=false]) {
+    return modBackups.obtenerUltimoBackup(keySistema, leer);
   }
 }
