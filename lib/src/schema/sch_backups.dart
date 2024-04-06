@@ -1,9 +1,12 @@
+import 'dart:ffi';
+
 class SchBackups {
   String keySistema;
   DateTime? fecha;
   double? tamano;
   String? archivo;
   DateTime? fechaDatos;
+  Int? normalizado;
 
   SchBackups({
     required this.keySistema,
@@ -11,6 +14,7 @@ class SchBackups {
     this.tamano,
     this.archivo,
     this.fechaDatos,
+    this.normalizado,
   });
 
   // Método para convertir un objeto SchBackups a un mapa
@@ -21,6 +25,7 @@ class SchBackups {
       'tamano': tamano,
       'archivo': archivo,
       'fechaDatos': fechaDatos?.toIso8601String(),
+      'normalizado': normalizado ?? '0',
     };
   }
 
@@ -33,6 +38,8 @@ class SchBackups {
       archivo: map['archivo'],
       fechaDatos:
           map['fechaDatos'] != null ? DateTime.parse(map['fechaDatos']) : null,
+      normalizado: map['normalizado'] != null ? (map['normalizado'] as Int) : null,
+          
     );
   }
 }
