@@ -2,8 +2,10 @@
 
 import 'dart:math';
 
+import 'package:sol_backoffice_api/sol_backoffice_api.dart';
 import 'package:sol_backoffice_api/src/controllers/con_sistemas.dart';
 import 'package:sol_backoffice_api/src/models/localdata/mod_configuraciones.dart';
+import 'package:sol_backoffice_api/src/models/nages_api/mod_actualizaciones.dart';
 import 'package:sol_backoffice_api/src/models/nages_api/mod_sistemas.dart';
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
@@ -59,4 +61,20 @@ void main() async {
       print("Backups: ${backups2.length}");
     });
   });
+
+  group('Actualizaciones', () {
+    late ModActualizaciones modActualizaciones;
+   // late List<SchActualizaciones> actualizaciones2 = [];
+    late SchActualizaciones actualizacion;
+
+    test('Revisar Backups de un sistema', () async {
+      modActualizaciones=ModActualizaciones();
+      actualizacion = await modActualizaciones.obtenerActualizaciones();
+      expect(actualizacion, isA<SchActualizaciones>(),
+          reason: "No es SchActualizaciones");
+      print("Backups: $actualizacion");
+    });
+
+
+  });  
 }

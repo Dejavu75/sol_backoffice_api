@@ -30,7 +30,10 @@ class ModActualizaciones {
     //print(urlApi);
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
-      return SchActualizaciones.fromMap(json.decode(response.body));
+          var json = jsonDecode(response.body);
+           //print(json);
+           SchActualizaciones jsonResponse = SchActualizaciones.fromMap(json);
+           return jsonResponse;
     } else {
       throw Exception('Failed to load actualizaciones');
     }
