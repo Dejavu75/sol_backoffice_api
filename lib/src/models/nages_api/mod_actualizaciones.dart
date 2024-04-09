@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, prefer_interpolation_to_compose_strings
 
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:http/http.dart' as http;
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
