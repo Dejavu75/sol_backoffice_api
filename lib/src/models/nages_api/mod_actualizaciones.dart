@@ -26,7 +26,7 @@ class ModActualizaciones {
 
     //config = await ModConfiguraciones().obtenerConfiguraciones();
     final urlApi =
-        '${schConfiguraciones.url}sistemas/actualizaciones${version.isNotEmpty ? '/' + version : ''}';
+        '${schConfiguraciones.url}internos/actualizaciones${version.isNotEmpty ? '/' + version : ''}';
     //print(urlApi);
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
