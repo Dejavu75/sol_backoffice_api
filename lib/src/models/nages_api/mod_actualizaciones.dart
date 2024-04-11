@@ -21,23 +21,32 @@ class ModActualizaciones {
         .controlarConfiguraciones(schConfiguraciones, this);
   }
 
-  Future<SchActualizaciones> obtenerActualizaciones([String version = "27", bool leer=false]) async {
+  Future<List<SchActualizaciones>> obtenerActualizaciones(
+      [String version = "27", bool leer = false]) async {
     await controlarConfiguraciones();
-
-    //config = await ModConfiguraciones().obtenerConfiguraciones();
-    final urlApi =
-        '${schConfiguraciones.url}internos/actualizaciones${version.isNotEmpty ? '/' + version : ''}';
-    //print(urlApi);
+    final urlApi ='${schConfiguraciones.url}internos/actualizaciones${version.isNotEmpty ? '/' + version : ''}';
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
-          var json = jsonDecode(response.body);
-           //print(json);
-           SchActualizaciones jsonResponse = SchActualizaciones.fromMap(json);
-           return jsonResponse;
+      List jsonResponse = json.decode(response.body);
+      List<SchActualizaciones> respuesta = jsonResponse
+          .map((data) => SchActualizaciones.fromMap(data))
+          .toList();
+          return respuesta;
     } else {
       throw Exception('Failed to load actualizaciones');
     }
   }
 
- 
+  Future<SchActualizaciones> obtenerActualizacion(String version,
+      [bool leer = false]) async {
+    await controlarConfiguraciones();
+    final urlApi = '${schConfiguraciones.url}internos/actualizaciones${'/' + version}';
+    final response = await http.get(Uri.parse(urlApi));
+    if (response.statusCode == 200) {
+      
+      return SchActualizaciones.fromMap( json.decode(response.body));
+    } else {
+      throw Exception('Failed to load actualizaciones');
+    }
+  }
 }

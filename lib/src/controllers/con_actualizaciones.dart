@@ -24,12 +24,18 @@ class ConActualizaciones {
     return modActualizaciones;
   }
 
-  Future<SchActualizaciones> obtenerActualizaciones([String version="",leer=false]) async {
+  Future<List<SchActualizaciones>> obtenerActualizaciones([String version="",bool leer=false]) async {
     controlarConfiguraciones();
-    SchActualizaciones actualizacion = await modActualizaciones.obtenerActualizaciones(version, leer);
+    List<SchActualizaciones> actualizacion = await modActualizaciones.obtenerActualizaciones(version, leer);
     return actualizacion;
   }
+Future<SchActualizaciones> obtenerActualizacion([String version="",bool leer=false]) async {
+    controlarConfiguraciones();
+    SchActualizaciones actualizacion = await modActualizaciones.obtenerActualizacion(version, leer);
+    return actualizacion;
+  }
+
   Future<SchActualizaciones> obtenerUltimoActualizacion([leer=false]) {
-    return modActualizaciones.obtenerActualizaciones("27", leer);
+    return modActualizaciones.obtenerActualizacion("27", leer);
   }
 }
