@@ -1,4 +1,4 @@
-import 'package:sol_backoffice_api/src/controllers/con_base.dart';
+
 import 'package:sol_backoffice_api/src/models/localdata/mod_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 
