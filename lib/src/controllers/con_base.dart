@@ -19,7 +19,8 @@ class ConBase {
   }
 
   getModelo() {
-    return null;
+    print("getModelo: $modelo");
+    return modelo;
   }
 
   controlarConfiguraciones([String configJson = ""]) async {
