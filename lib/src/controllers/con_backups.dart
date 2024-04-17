@@ -2,27 +2,19 @@ import 'dart:async';
 
 
 
-import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
+import 'package:sol_backoffice_api/src/controllers/con_base.dart';
 import 'package:sol_backoffice_api/src/models/nages_api/mod_backups.dart';
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 
-class ConBackups {
+class ConBackups extends ConBase  {
   ModBackups modBackups = ModBackups();
-  SchConfiguraciones schConfiguraciones = SchConfiguraciones();
-  ConBackups([SchConfiguraciones? xconf]) {
-    if (xconf != null) {
-      schConfiguraciones = xconf;
-    }
+  
+  ConBackups([SchConfiguraciones? xconf, String configJson=""]) {
+    modelo = modBackups;
+    controlarInicio(xconf, configJson);
   }
 
-  controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
-    await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, modBackups);
-    return modBackups;
-  }
 
   Future<List<SchBackups>> obtenerBackups([String keySistema="", leer=false]) async {
     controlarConfiguraciones();
@@ -30,6 +22,7 @@ class ConBackups {
     return sistemas;
   }
   Future<SchBackups> obtenerUltimoBackup(String keySistema, [leer=false]) {
+    controlarConfiguraciones();
     return modBackups.obtenerUltimoBackup(keySistema, leer);
   }
 }

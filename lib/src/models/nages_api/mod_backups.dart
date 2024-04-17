@@ -2,23 +2,15 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sol_backoffice_api/src/models/mod_base.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
-import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 
-class ModBackups {
-  SchConfiguraciones schConfiguraciones = SchConfiguraciones();
+class ModBackups extends ModBase{
 
   String urlApi = '';
-  ModBackups([SchConfiguraciones? xconf]) {
-    if (xconf != null) {
-      schConfiguraciones = xconf;
-    }
-  }
-
-  controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
+  ModBackups([SchConfiguraciones? xconf, String configJson=""]) {
+    controlarInicio(xconf, configJson);
   }
 
   Future<List<SchBackups>> obtenerBackups([String key_sistema = "", leer=false]) async {

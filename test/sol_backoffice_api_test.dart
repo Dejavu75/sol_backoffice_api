@@ -2,6 +2,7 @@
 
 import 'dart:math';
 
+import 'package:sol_backoffice_api/sol_backoffice_api.dart';
 import 'package:sol_backoffice_api/src/controllers/con_actualizaciones.dart';
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/controllers/con_sistemas.dart';
@@ -43,12 +44,11 @@ void main() async {
     });
   });
   group('Backups', () {
-    late ModBackups modBackups;
     late List<SchBackups> backups2 = [];
     late SchBackups backups;
+    ConBackups conBackups = ConBackups();
     test('Revisar Backups de un sistema', () async {
-      modBackups = ModBackups();
-      backups2 = await modBackups.obtenerBackups();
+      backups2 = await conBackups.obtenerBackups();
       expect(backups2, isA<List<SchBackups>>(),
           reason: "No es List<SchBackups>");
       print("Backups: ${backups2.length}");
@@ -56,19 +56,17 @@ void main() async {
 
     test('Revisar Backups MAX_SN', () async {
       List<SchBackups> backups2 = [];
-      modBackups = ModBackups();
-      backups2 = await modBackups.obtenerBackups("AVI 1");
+      backups2 = await conBackups.obtenerBackups("MCL 1");
       expect(backups2, isA<List<SchBackups>>(),
           reason: "No es List<SchBackups>");
       print("Backups: ${backups2.length}");
     });
     test('Revisar Backups MAX_SN', () async {
       List<SchBackups> backups2 = [];
-      modBackups = ModBackups();
-      backups = await modBackups.obtenerUltimoBackup("AVI 1");
+      backups = await conBackups.obtenerUltimoBackup("CAM 1");
       expect(backups2, isA<List<SchBackups>>(),
           reason: "No es List<SchBackups>");
-      print("Backups: ${backups2.length}");
+      print("Ultimo: ${backups2.length}");
     });
   });
 
@@ -81,12 +79,18 @@ void main() async {
       actualizaciones = await conActualizaciones.obtenerActualizaciones();
       expect(actualizaciones, isA<List<SchActualizaciones>>(),
           reason: "No es SchActualizaciones");
+      print("Actualizacion: ${actualizaciones[0].version}");
     });
     test('Revisar actualización', () async {
       actualizacion = await conActualizaciones.obtenerActualizacion("27");
       expect(actualizacion, isA<SchActualizaciones>(),
           reason: "No es SchActualizaciones");
-      print("Backups: $actualizacion");
+    });
+    test('Revisar Ultima Actualización', () async {
+      actualizacion = await conActualizaciones.obtenerUltimoActualizacion();
+      expect(actualizacion, isA<SchActualizaciones>(),
+          reason: "No es SchActualizaciones");
+      print("GES: ${actualizacion.exeGesFecha}");
     });
   });
 }

@@ -1,3 +1,4 @@
+import 'package:sol_backoffice_api/src/controllers/con_base.dart';
 import 'package:sol_backoffice_api/src/models/localdata/mod_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 
@@ -9,7 +10,7 @@ class ConConfiguraciones {
     return config;
   }
 
-  Future<SchConfiguraciones> controlarConfiguraciones(
+  static Future<SchConfiguraciones> controlarConfiguraciones(
       [SchConfiguraciones? config2, objeto, String configuracionJSON=""]) async {
     if (config2 != null) {
       if (config2.url == "") {

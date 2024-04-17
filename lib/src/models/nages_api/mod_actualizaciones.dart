@@ -2,24 +2,18 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sol_backoffice_api/src/models/mod_base.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
-import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_actualizaciones.dart';
 
-class ModActualizaciones {
-  SchConfiguraciones schConfiguraciones = SchConfiguraciones();
+class ModActualizaciones extends ModBase{
+ 
 
   String urlApi = '';
-  ModActualizaciones([SchConfiguraciones? xconf]) {
-    if (xconf != null) {
-      schConfiguraciones = xconf;
-    }
+  ModActualizaciones([SchConfiguraciones? xconf, String configJson=""]) {
+    controlarInicio(xconf, configJson);
   }
 
-  controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
-  }
 
   Future<List<SchActualizaciones>> obtenerActualizaciones(
       [String version = "27", bool leer = false]) async {
