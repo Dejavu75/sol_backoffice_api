@@ -3,6 +3,7 @@
 import 'dart:math';
 
 import 'package:sol_backoffice_api/src/controllers/con_actualizaciones.dart';
+import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/controllers/con_sistemas.dart';
 import 'package:sol_backoffice_api/src/models/localdata/mod_configuraciones.dart';
 import 'package:sol_backoffice_api/src/models/nages_api/mod_actualizaciones.dart';
@@ -23,8 +24,7 @@ void main() async {
   group('Configuraciones', () {
     test('obtenerConfiguraciones debe retornar una configuracion válida',
         () async {
-      modConfiguraciones = ModConfiguracionesBase();
-      xconf = await modConfiguraciones.obtenerConfiguraciones();
+      xconf = await ConConfiguraciones.obtenerConfiguracion("");
       expect(xconf, isA<SchConfiguraciones>(),
           reason: "No es SchConfiguraciones");
       expect(xconf.url, isNotNull, reason: "No tiene url");
@@ -78,7 +78,7 @@ void main() async {
     late SchActualizaciones actualizacion;
 
     test('Revisar actualizaciones', () async {
-      actualizaciones = await conActualizaciones.obtenerActualizaciones(); 
+      actualizaciones = await conActualizaciones.obtenerActualizaciones();
       expect(actualizaciones, isA<List<SchActualizaciones>>(),
           reason: "No es SchActualizaciones");
     });

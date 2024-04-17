@@ -3,8 +3,8 @@ import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'dart:io';
 
 class ModConfiguracionesBase {
-  Future<SchConfiguraciones> obtenerConfiguraciones(
-      [String configString = ""]) async {
+  static Future<SchConfiguraciones> obtenerConfiguraciones(
+      String configString) async {
     String raw = '';
     try {
       // ignore: prefer_typing_uninitialized_variables
