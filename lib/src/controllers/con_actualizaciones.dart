@@ -17,10 +17,8 @@ class ConActualizaciones {
   }
 
   controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
-    await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, modActualizaciones);
+    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this);
+    await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, modActualizaciones);
     return modActualizaciones;
   }
 

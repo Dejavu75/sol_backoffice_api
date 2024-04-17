@@ -17,8 +17,7 @@ class ModActualizaciones {
   }
 
   controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
+    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this);
   }
 
   Future<List<SchActualizaciones>> obtenerActualizaciones(

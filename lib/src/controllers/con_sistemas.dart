@@ -16,10 +16,8 @@ class ConSistemas {
   }
 
   controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
-    await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, modSistemas);
+    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this);
+    await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, modSistemas);
     return modSistemas;
   }
 

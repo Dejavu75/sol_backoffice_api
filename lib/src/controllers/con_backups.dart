@@ -17,10 +17,8 @@ class ConBackups {
   }
 
   controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
-    await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, modBackups);
+    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this);
+    await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, modBackups);
     return modBackups;
   }
 

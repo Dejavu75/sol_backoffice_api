@@ -9,7 +9,7 @@ class ConConfiguraciones {
     return config;
   }
 
-  Future<SchConfiguraciones> controlarConfiguraciones(
+  static Future<SchConfiguraciones> controlarConfiguraciones(
       [SchConfiguraciones? config2, objeto, String configuracionJSON=""]) async {
     if (config2 != null) {
       if (config2.url == "") {

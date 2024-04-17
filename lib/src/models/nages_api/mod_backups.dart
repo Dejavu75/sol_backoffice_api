@@ -17,8 +17,7 @@ class ModBackups {
   }
 
   controlarConfiguraciones() async {
-    schConfiguraciones = await ConConfiguraciones()
-        .controlarConfiguraciones(schConfiguraciones, this);
+    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this);
   }
 
   Future<List<SchBackups>> obtenerBackups([String key_sistema = "", leer=false]) async {
