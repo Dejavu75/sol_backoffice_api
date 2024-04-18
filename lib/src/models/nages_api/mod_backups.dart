@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/models/mod_base.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
@@ -9,8 +10,8 @@ import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 class ModBackups extends ModBase{
 
   String urlApi = '';
-  ModBackups([SchConfiguraciones? xconf, String configJson=""]) {
-    controlarInicio(xconf, configJson);
+  ModBackups([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
+    controlarInicio(xconf, modConfiguraciones);
   }
 
   Future<List<SchBackups>> obtenerBackups([String key_sistema = "", leer=false]) async {

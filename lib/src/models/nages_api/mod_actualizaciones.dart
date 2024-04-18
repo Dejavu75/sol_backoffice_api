@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/models/mod_base.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'package:sol_backoffice_api/src/schema/sch_actualizaciones.dart';
@@ -10,8 +11,8 @@ class ModActualizaciones extends ModBase{
  
 
   String urlApi = '';
-  ModActualizaciones([SchConfiguraciones? xconf, String configJson=""]) {
-    controlarInicio(xconf, configJson);
+  ModActualizaciones([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
+    controlarInicio(xconf, modConfiguraciones);
   }
 
 

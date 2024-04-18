@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 
 
 import 'package:sol_backoffice_api/src/models/mod_base.dart';
@@ -9,8 +10,8 @@ import 'package:sol_backoffice_api/src/schema/sch_sistemas.dart';
 class ModSistemas  extends ModBase{
   
   String urlApi = '';
-  ModSistemas([SchConfiguraciones? xconf, String configJson=""]) {
-    controlarInicio(xconf, configJson);
+  ModSistemas([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
+    controlarInicio(xconf, modConfiguraciones);
   }
 
   Future<List<SchSistema>> obtenerSistemas() async {

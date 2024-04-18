@@ -3,16 +3,16 @@ import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 
 class ModBase{
    SchConfiguraciones schConfiguraciones = SchConfiguraciones();
-  controlarConfiguraciones([ String configJson = ""]) async {
+  controlarConfiguraciones([ModConfiguracionesApi? modConfiguraciones]) async {
 
-    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this,configJson);
+    schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(schConfiguraciones, this,modConfiguraciones);
   }
-  controlarInicio([SchConfiguraciones? xconf, String configJson = ""]) {
+  controlarInicio([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
     if (xconf != null) {
       schConfiguraciones = xconf;
     }
-    if (configJson != "") {
-      controlarConfiguraciones(configJson);
+    if (modConfiguraciones != null) {
+      controlarConfiguraciones(modConfiguraciones);
     }
   }
 }
