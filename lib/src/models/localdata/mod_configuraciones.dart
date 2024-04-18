@@ -3,7 +3,7 @@ import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'dart:io';
 
 class ModConfiguracionesBase {
-  static Future<String> obtenerConfigString() async {
+  Future<String> obtenerConfigString() async {
     try {
       final file = File('config.json');
       return await file.readAsString();
@@ -47,7 +47,7 @@ class ModConfiguracionesBase {
           apikey: '');
     }
   }
-  static Future<SchConfiguraciones> obtenerConfiguraciones(
+  Future<SchConfiguraciones> obtenerConfiguraciones(
       String configString) async {
     String raw = '';
     try {

@@ -9,7 +9,7 @@ class ConConfiguraciones {
       return await modConfiguraciones.obtenerConfiguracionesString();
     } else {
       SchConfiguraciones config =
-          await ModConfiguracionesBase.obtenerConfiguraciones('');
+          await ModConfiguracionesBase().obtenerConfiguraciones('');
       return config;
     }
   }
