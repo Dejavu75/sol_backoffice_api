@@ -3,6 +3,7 @@ import 'dart:async';
 
 
 import 'package:sol_backoffice_api/src/controllers/con_base.dart';
+import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/models/nages_api/mod_backups.dart';
 import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
@@ -10,9 +11,9 @@ import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 class ConBackups extends ConBase  {
   ModBackups modBackups = ModBackups();
   
-  ConBackups([SchConfiguraciones? xconf, String configJson=""]) {
+  ConBackups([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
     modelo = modBackups;
-    controlarInicio(xconf, configJson);
+    controlarInicio(xconf, modConfiguraciones);
   }
 
 

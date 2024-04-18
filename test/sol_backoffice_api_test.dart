@@ -25,7 +25,7 @@ void main() async {
   group('Configuraciones', () {
     test('obtenerConfiguraciones debe retornar una configuracion válida',
         () async {
-      xconf = await ConConfiguraciones.obtenerConfiguracion("");
+      xconf = await ConConfiguraciones.obtenerConfiguracion();
       expect(xconf, isA<SchConfiguraciones>(),
           reason: "No es SchConfiguraciones");
       expect(xconf.url, isNotNull, reason: "No tiene url");

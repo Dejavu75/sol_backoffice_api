@@ -6,15 +6,15 @@ class ConBase {
   // ignore: prefer_typing_uninitialized_variables
   SchConfiguraciones schConfiguraciones = SchConfiguraciones();
   late ModBase modelo;
-  ConBase([SchConfiguraciones? xconf, String configJson = ""]) {
-    controlarInicio(xconf, configJson);
+  ConBase([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
+    controlarInicio(xconf, modConfiguraciones);
   }
-  controlarInicio([SchConfiguraciones? xconf, String configJson = ""]) {
+  controlarInicio([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
     if (xconf != null) {
       schConfiguraciones = xconf;
     }
-    if (configJson != "") {
-      controlarConfiguraciones(configJson);
+    if (modConfiguraciones != null) {
+      controlarConfiguraciones(modConfiguraciones);
     }
   }
 
@@ -23,12 +23,12 @@ class ConBase {
     return modelo;
   }
 
-  controlarConfiguraciones([String configJson = ""]) async {
+  controlarConfiguraciones([ModConfiguracionesApi? modConfiguraciones]) async {
     var modelo = getModelo();
     schConfiguraciones = await ConConfiguraciones.controlarConfiguraciones(
-        schConfiguraciones, this, configJson);
+        schConfiguraciones, this, modConfiguraciones);
     await ConConfiguraciones.controlarConfiguraciones(
-        schConfiguraciones, modelo, configJson);
+        schConfiguraciones, modelo, modConfiguraciones);
     return modelo;
   }
 }
