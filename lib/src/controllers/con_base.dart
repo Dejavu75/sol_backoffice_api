@@ -19,7 +19,7 @@ class ConBase {
   }
 
   getModelo() {
-    print("getModelo: $modelo");
+    //print("getModelo: $modelo");
     return modelo;
   }
 
