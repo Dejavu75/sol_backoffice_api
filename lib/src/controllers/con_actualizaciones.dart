@@ -19,17 +19,17 @@ class ConActualizaciones extends ConBase {
   }
 
   Future<List<SchActualizaciones>> obtenerActualizaciones([String version="",bool leer=false]) async {
-    controlarConfiguraciones();
+    await controlarConfiguraciones();
     List<SchActualizaciones> actualizacion = await modActualizaciones.obtenerActualizaciones(version, leer);
     return actualizacion;
   }
   Future<SchActualizaciones> obtenerActualizacion([String version="",bool leer=false]) async {
-    controlarConfiguraciones();
+    await controlarConfiguraciones();
     SchActualizaciones actualizacion = await modActualizaciones.obtenerActualizacion(version, leer);
     return actualizacion;
   }
-  Future<SchActualizaciones> obtenerUltimoActualizacion([leer=false]) {
-    controlarConfiguraciones();
-    return modActualizaciones.obtenerActualizacion("27", leer);
+  Future<SchActualizaciones> obtenerUltimoActualizacion([leer=false]) async {
+    await controlarConfiguraciones();
+    return await modActualizaciones.obtenerActualizacion("27", leer);
   }
 }

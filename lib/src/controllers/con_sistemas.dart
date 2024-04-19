@@ -16,7 +16,7 @@ class ConSistemas extends ConBase{
   }
  
   Future<List<SchSistema>> obtenerSistemas() async {
-    controlarConfiguraciones();
+    await controlarConfiguraciones();
     List<SchSistema> sistemas = await modSistemas.obtenerSistemas();
     return sistemas;
   }
