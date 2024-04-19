@@ -1,6 +1,8 @@
 // {
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:sol_backoffice_api/src/schema/sch_backups.dart';
+
 class SchSistema {
   String key_sistema;
   String? id_sistema;
@@ -26,7 +28,7 @@ class SchSistema {
   int? ages;
   int? nages;
   String? backupheader;
-
+  List<SchBackups>? backups=[];
   SchSistema(
       {required this.key_sistema,
       this.id_sistema,

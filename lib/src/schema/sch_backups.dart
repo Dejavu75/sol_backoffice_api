@@ -16,7 +16,6 @@ class SchBackups {
   bool? okTamano = false;
   bool? okGeneral = false;
   bool? leido = false;
-
   SchBackups({
     required this.keySistema,
     this.fecha,
