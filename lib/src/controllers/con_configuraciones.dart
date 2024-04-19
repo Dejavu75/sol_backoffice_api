@@ -27,7 +27,7 @@ class ConConfiguraciones {
           await ConConfiguraciones.obtenerConfiguracion(modConfiguraciones);
     }
     if (objeto != null) {
-      objeto.schConfiguraciones ??= config2;
+      objeto.schConfiguraciones = config2;
     }
     return config2;
   }
