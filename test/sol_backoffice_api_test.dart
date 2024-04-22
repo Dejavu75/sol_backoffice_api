@@ -25,7 +25,7 @@ void main() async {
   group('Configuraciones', () {
     test('obtenerConfiguraciones debe retornar una configuracion válida',
         () async {
-      xconf = await ConConfiguraciones.obtenerConfiguracion();
+      xconf = await ConConfiguraciones.obtenerConfiguracion(null , "D:/Webs/Flutter/sol_backoffice_api/sol_backoffice_api/config.json");
       expect(xconf, isA<SchConfiguraciones>(),
           reason: "No es SchConfiguraciones");
       expect(xconf.url, isNotNull, reason: "No tiene url");

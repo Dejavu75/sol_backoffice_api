@@ -3,11 +3,20 @@ import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
 import 'dart:io';
 
 class ModConfiguracionesBase {
+  String configFile = 'config.json';
+
+  ModConfiguracionesBase([String configFile=""]){
+    if (configFile != "") {
+      this.configFile = configFile;
+    }
+  }
+
   Future<String> obtenerConfigString() async {
     try {
-      final file = File('config.json');
+      final file = File(configFile);
       return await file.readAsString();
     } catch (e) {
+      print ("No se pudo leer el archivo de configuración: $configFile ");
       return '';
     }
   }
