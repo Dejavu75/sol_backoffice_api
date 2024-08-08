@@ -9,6 +9,8 @@ environment:
 # Add regular dependencies here.
 dependencies:
   http: ^1.2.1
+  provider: ^6.1.2
+  shared_preferences: ^2.2.3
   # path: ^1.8.0
 
 dev_dependencies:

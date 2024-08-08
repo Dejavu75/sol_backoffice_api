@@ -56,7 +56,7 @@ void main() async {
 
     test('Revisar Backups MAX_SN', () async {
       List<SchBackups> backups2 = [];
-      backups2 = await conBackups.obtenerBackups("MCL 1");
+      backups2 = await conBackups.obtenerBackups("ART 1");
       expect(backups2, isA<List<SchBackups>>(),
           reason: "No es List<SchBackups>");
       print("Backups: ${backups2.length}");

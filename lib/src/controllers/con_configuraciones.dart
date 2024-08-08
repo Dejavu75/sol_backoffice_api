@@ -9,10 +9,10 @@ class ConConfiguraciones {
       if (configFile != "") {
         modConfiguraciones.configFile = configFile;
       } 
-      return await modConfiguraciones.obtenerConfiguracionesString();
+      return await modConfiguraciones.obtenerConfiguraciones();
     } else {
       SchConfiguraciones config =
-          await ModConfiguracionesBase(configFile).obtenerConfiguraciones('');
+          await ModConfiguracionesBase(configFile).obtenerConfiguraciones();
       return config;
     }
   }

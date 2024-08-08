@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:sol_backoffice_api/sol_backoffice_api.dart';
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/models/mod_base.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
@@ -46,7 +47,28 @@ class ModBackups extends ModBase{
       throw Exception('Failed to load backups');
     }
   }
+ Future<String> actualizarBackup(String key_sistema, SchBackups backup) async {
+    await controlarConfiguraciones();
+    var estado=1;
+    if (backup.okGeneral==true) {
+        estado=1;
+    } else if (backup.okData==false) {
+        estado=2;
+   } else if (backup.okNormal==false) {
+        estado=3;
+    }
 
+    //config = await ModConfiguraciones().obtenerConfiguraciones();
+    final urlApi =
+        '${schConfiguraciones.url}sistemas/backups/cambiar_estado/$key_sistema/$estado';
+    //print(urlApi);
+    final response = await http.post(Uri.parse(urlApi), body: json.encode(backup));
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+
+      return 'Error';
+    }
+  }
   //Funcion para obtener el ultimo backup de un sistema de la lista obtenerBackups
-
 }

@@ -26,4 +26,8 @@ class ConBackups extends ConBase  {
     await controlarConfiguraciones();
     return  await modBackups.obtenerUltimoBackup(keySistema, leer);
   }
+  Future<String> actualizarBackup(String keySistema, SchBackups cBak) async {
+    await controlarConfiguraciones();
+    return  await modBackups.actualizarBackup(keySistema, cBak);
+  }  
 }
