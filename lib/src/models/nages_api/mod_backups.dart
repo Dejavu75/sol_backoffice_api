@@ -62,7 +62,8 @@ class ModBackups extends ModBase{
     final urlApi =
         '${schConfiguraciones.url}sistemas/backups/cambiar_estado/$key_sistema/$estado';
     //print(urlApi);
-    final response = await http.post(Uri.parse(urlApi), body: json.encode(backup));
+    
+    final response = await http.post(Uri.parse(urlApi), body:json.encode(backup.toMap()));
     if (response.statusCode == 200) {
       return response.body;
     } else {
