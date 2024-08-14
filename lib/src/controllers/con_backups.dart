@@ -19,8 +19,13 @@ class ConBackups extends ConBase  {
 
   Future<List<SchBackups>> obtenerBackups([String keySistema="", leer=false]) async {
     await controlarConfiguraciones();
-    List<SchBackups> sistemas = await modBackups.obtenerBackups(keySistema, leer);
-    return sistemas;
+    List<SchBackups> backups = await modBackups.obtenerBackups(keySistema, leer);
+    return backups;
+  }
+  Future<List<SchBackups>> obtenerUltimosBackups([String keySistema="", leer=false]) async {
+    await controlarConfiguraciones();
+    List<SchBackups> backups = await modBackups.obtenerUltimosBackups(keySistema, leer);
+    return backups;
   }
   Future<SchBackups> obtenerUltimoBackup(String keySistema, [leer=false]) async {
     await controlarConfiguraciones();
