@@ -30,7 +30,22 @@ class ModBackups extends ModBase{
       throw Exception('Failed to load backups');
     }
   }
+ Future<List<SchBackups>> obtenerUltimosBackups([key_sistema = "", leer=false]) async {
+    await controlarConfiguraciones();
 
+    //config = await ModConfiguraciones().obtenerConfiguraciones();
+    final urlApi =
+        '${schConfiguraciones.url}sistemas/backups/ultimos/${leer ? 'leer/':''}${key_sistema.isNotEmpty ? '' + key_sistema : ''}';
+    //print(urlApi);        
+    final response = await http.get(Uri.parse(urlApi));
+    if (response.statusCode == 200) {
+      
+      List jsonResponse = json.decode(response.body);
+      return jsonResponse.map((data) => SchBackups.fromMap(data)).toList();
+    } else {
+      throw Exception('Failed to load backups');
+    }
+  }
   Future<SchBackups> obtenerUltimoBackup([key_sistema = "", leer=false]) async {
     await controlarConfiguraciones();
 
