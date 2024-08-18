@@ -14,7 +14,20 @@ class ModBackups extends ModBase{
   ModBackups([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
     controlarInicio(xconf, modConfiguraciones);
   }
-
+  Future<SchBackupSpace> backupSpace() async {
+    await controlarConfiguraciones();
+    final urlApi =
+        '${schConfiguraciones.url}sistemas/backups/espacio_libre/';
+    //print(urlApi);        
+    final response = await http.get(Uri.parse(urlApi));
+    if (response.statusCode == 200) {
+      
+      SchBackupSpace jsonResponse = SchBackupSpace.fromMap(json.decode(response.body));
+      return jsonResponse;
+    } else {
+      throw Exception('Failed to load backups space');
+    }
+  }
   Future<List<SchBackups>> obtenerBackups([String key_sistema = "", leer=false]) async {
     await controlarConfiguraciones();
 

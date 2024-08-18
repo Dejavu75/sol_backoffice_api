@@ -1,8 +1,27 @@
-      // okData: false,
-      // okFile: false,
-      // okNormal: false,
-      // okTamano: false,
-      // okGeneral: false
+class SchBackupSpace {
+    int? totalSpace;
+    int? usedSpace;
+    int? freeSpace;
+
+    SchBackupSpace({
+        this.totalSpace,
+        this.usedSpace,
+        this.freeSpace,
+    });
+
+    factory SchBackupSpace.fromMap(Map<String, dynamic> json) => SchBackupSpace(
+        totalSpace: json["totalSpace"],
+        usedSpace: json["usedSpace"],
+        freeSpace: json["freeSpace"],
+    );
+
+    Map<String, dynamic> toMap() => {
+        "totalSpace": totalSpace,
+        "usedSpace": usedSpace,
+        "freeSpace": freeSpace,
+    };
+}
+
 class SchBackups {
   String keySistema;
   DateTime? fecha;
