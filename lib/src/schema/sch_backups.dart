@@ -23,7 +23,7 @@ class SchBackupSpace {
 }
 class SchBackupFTPStatus {
     String? status;
-    int? errorcode;
+    String? errorcode;
     String? message;
 
     SchBackupFTPStatus({
@@ -34,7 +34,7 @@ class SchBackupFTPStatus {
 
     factory SchBackupFTPStatus.fromMap(Map<String, dynamic> json) => SchBackupFTPStatus(
         status: json["status"] ?? "unknown",
-        errorcode: json["errorcode"] ?? 0 ,
+        errorcode: json["errorcode"] ?? "",
         message: json["message"] ?? "",
     );
 
