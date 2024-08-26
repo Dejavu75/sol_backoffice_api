@@ -21,7 +21,29 @@ class SchBackupSpace {
         "freeSpace": freeSpace,
     };
 }
+class SchBackupFTPStatus {
+    String? status;
+    int? errorcode;
+    String? message;
 
+    SchBackupFTPStatus({
+        this.status,
+        this.errorcode,
+        this.message,
+    });
+
+    factory SchBackupFTPStatus.fromMap(Map<String, dynamic> json) => SchBackupFTPStatus(
+        status: json["status"] ?? "unknown",
+        errorcode: json["errorcode"] ?? 0 ,
+        message: json["message"] ?? "",
+    );
+
+    Map<String, dynamic> toMap() => {
+        "status": status,
+        "errorcode": errorcode,
+        "message": message,
+    };
+}
 class SchBackups {
   String keySistema;
   DateTime? fecha;

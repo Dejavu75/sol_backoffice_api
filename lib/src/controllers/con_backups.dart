@@ -39,4 +39,8 @@ class ConBackups extends ConBase  {
     await controlarConfiguraciones();
     return  await modBackups.backupSpace();
   }
+    Future<SchBackupFTPStatus> backupFTPStatus() async {
+    await controlarConfiguraciones();
+    return  await modBackups.backupFTPStatus();
+  }  
 }

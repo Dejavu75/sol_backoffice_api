@@ -2,7 +2,6 @@
 
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:sol_backoffice_api/sol_backoffice_api.dart';
 import 'package:sol_backoffice_api/src/controllers/con_configuraciones.dart';
 import 'package:sol_backoffice_api/src/models/mod_base.dart';
 import 'package:sol_backoffice_api/src/schema/sch_configuraciones.dart';
@@ -13,6 +12,20 @@ class ModBackups extends ModBase{
   String urlApi = '';
   ModBackups([SchConfiguraciones? xconf, ModConfiguracionesApi? modConfiguraciones]) {
     controlarInicio(xconf, modConfiguraciones);
+  }
+    Future<SchBackupFTPStatus> backupFTPStatus() async {
+    await controlarConfiguraciones();
+    final urlApi =
+        '${schConfiguraciones.url}sistemas/ftp/status/';
+    //print(urlApi);        
+    final response = await http.get(Uri.parse(urlApi));
+    if (response.statusCode == 200) {
+      
+      SchBackupFTPStatus jsonResponse = SchBackupFTPStatus.fromMap(json.decode(response.body));
+      return jsonResponse;
+    } else {
+      throw Exception('Failed to load backups status');
+    }
   }
   Future<SchBackupSpace> backupSpace() async {
     await controlarConfiguraciones();
