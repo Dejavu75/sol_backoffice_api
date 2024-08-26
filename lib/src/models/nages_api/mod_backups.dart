@@ -16,7 +16,7 @@ class ModBackups extends ModBase{
     Future<SchBackupFTPStatus> backupFTPStatus() async {
     await controlarConfiguraciones();
     final urlApi =
-        '${schConfiguraciones.url}sistemas/ftp/status/';
+        '${schConfiguraciones.url}ftp/status/';
     //print(urlApi);        
     final response = await http.get(Uri.parse(urlApi));
     if (response.statusCode == 200) {
